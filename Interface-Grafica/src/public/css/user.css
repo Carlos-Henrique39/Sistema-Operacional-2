@@ -1,0 +1,113 @@
+body {
+    margin: 0;
+    height: 100%;
+    background-image: url(../imgs/Lanchonete_fundo.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.fundoImg{
+    background-image: url(../imgs/Cardapio_branco.jpg);
+    width: 401px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 5px 5px 0px 0px rgb(0 0 0 / 0.5);
+    margin-bottom: 15px;
+    margin-right: 15px;
+    float: left;
+}
+
+ul{
+    list-style: none;
+}
+
+li{
+    background-size: 100%;
+    font-size: 18px;
+    color: gold;
+    font-style: italic;
+}
+
+.descritor{
+    font-weight: bold;
+}
+
+.div1{
+    height:200px;
+    width: 320px;
+    float: right;
+    border-left-style: solid;
+    border-bottom-style: solid;  
+}
+
+img{
+    height: 200px;
+    width: 320px;
+}
+
+.div2{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: space-between;
+    height:48px;
+    width: 280px;
+    margin-top: 15px;
+    margin-left: 20px;
+    color: black;
+    float: right;
+}
+
+.topnav {
+    overflow: hidden;
+    background-color: #e9e9e9;
+}
+  
+.topnav a {
+    float: left;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+  
+.topnav a.active {
+    background-color: #2196F3;
+    color: white;
+}
+  
+.topnav input[type=text] {
+    float: right;
+    padding: 6px;
+    border: none;
+    margin-top: 8px;
+    margin-right: 16px;
+    font-size: 17px;
+}
+
+.topnav input[type=submit] {
+    float: right;
+    padding: 6px;
+    margin-top: 8px;
+    margin-right: 16px;
+    font-size: 17px;
+    border: none;
+    background-color: #e9e9e9;
+}
+
+.topnav input[type=submit]:hover {
+    color: gold;
+    cursor: pointer;
+}

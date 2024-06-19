@@ -1,0 +1,143 @@
+<!doctype html>
+<html>
+        <head>
+                <meta charset="utf-8" />
+                <link rel="stylesheet" href="css/cadastro.css" />
+                <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        </head>
+        <body> 
+                
+                <div class="topnav">
+                        <a class="active" href="/home">Home</a>
+                        <a href="/cadastrovenda">Cadastro Venda</a>                                  
+                </div>
+
+
+                <form id="form" method="post" action="/a">
+                        <div class="form_espaco_titulo">                                
+                                <label class="tituloForm">Cadastre sua venda</label>
+                        </div>
+
+                        <div class="form_espaco_label">     
+                                <label class="label">Nome da Venda</label>
+                        </div>                        
+                        <div class="form_espaco_input">
+                                <input class="input" id="nome" type="text"/>
+                        </div>  
+
+                        <div class="form_espaco_label">     
+                            <label class="label">Foto</label>
+                        </div>
+                        <div class="form_espaco_input">
+                                <input class="input" id="foto" type="text"/>
+                        </div>  
+
+                        <div class="form_espaco_label">     
+                            <label class="label">Descricao</label>
+                        </div>
+                        <div class="form_espaco_input">
+                                <input class="input" id="descricao" type="text"/>
+                        </div>  
+
+                        <div class="form_espaco_label">     
+                                <label class="label">Valor de Compra</label>
+                        </div>
+                        <div class="form_espaco_input">
+                                <input class="input" id="valorDeCompra" type="number"/>
+                        </div>  
+
+                        <div class="form_espaco_label">     
+                                <label class="label">Valor De Venda</label>
+                        </div>
+                        <div class="form_espaco_input">
+                                <input class="input" id="valorDeVenda" type="number"/>
+                        </div>
+                        
+                        <div class="form_espaco_label">     
+                                <label class="label">Quantidade De Estoque</label>
+                        </div>
+                        <div class="form_espaco_input">
+                                <input class="input" id="quantidadeDeEstoque" type="number"/>
+                        </div> 
+
+                        <div class="form_espaco_label">     
+                                <label class="label">Estoque Minimo</label>
+                        </div>
+                        <div class="form_espaco_input">
+                                <input class="input" id="estoqueMinimo" type="number"/>
+                        </div> 
+
+                        <div class="form_espaco_label">     
+                                <label class="label">Categoria(Porção/Bebida/Combo/Diversos):</label>
+                        </div>
+                        <div class="form_espaco_input">
+                                <input class="input" id="categoria" type="text"/>
+                        </div> 
+
+                        <div class="form_espaco_label">     
+                                <label class="label">localDoEstoque</label>
+                        </div>
+                        <div class="form_espaco_input">
+                                <input class="input" id="localDoEstoque" type="text"/>
+                        </div>
+
+                        <div class="form_espaco_label">     
+                                <label class="label">Informacoes</label>
+                        </div>
+                        <div class="form_espaco_input">
+                                <input class="input" id="informacoes" type="text"/>
+                        </div> 
+
+                        <div class="form_espaco_botao">
+                                <button type="submit" class="botao">Cadastrar</button>   
+                        </div>                            
+                </form>                 
+                
+                <script>
+                        const form = document.getElementById('form');
+
+                        form.addEventListener('submit', async function(e){
+                                e.preventDefault();
+
+                                const formData = new FormData(form);
+
+                                const nome = document.getElementById('nome').value;
+                                const foto = document.getElementById('foto').value;   
+                                const descricao = document.getElementById('descricao').value; 
+                                const valorDeCompra = document.getElementById('valorDeCompra').value;
+                                const valorDeVenda = document.getElementById('valorDeVenda').value;
+                                const quantidadeDeEstoque = document.getElementById('quantidadeDeEstoque').value;
+                                const estoqueMinimo = document.getElementById('estoqueMinimo').value;
+                                const categoria = document.getElementById('categoria').value;
+                                const localDoEstoque = document.getElementById('localDoEstoque').value;
+                                const informacoes = document.getElementById('informacoes').value;
+                                
+                                let popUp = true;
+
+                                try {
+                                        const res = await axios.post('http://localhost:5000/addVenda',{
+                                                "nome": nome,
+                                                "foto": foto,
+                                                "descricao": descricao,
+                                                "valorDeCompra": valorDeCompra,
+                                                "valorDeVenda": valorDeVenda,
+                                                "quantidadeDeEstoque": quantidadeDeEstoque,
+                                                "estoqueMinimo": estoqueMinimo,
+                                                "categoria": categoria,
+                                                "localDoEstoque": localDoEstoque,
+                                                "informacoes": informacoes,
+
+                                        });
+                                        console.log(res.data);
+                                        if(res.data.usuario){
+                                                alert("Venda cadastrada com sucesso!")
+                                        } else {
+                                                alert(res.data)
+                                        }                                        
+                                } catch (error){
+                                        console.log(error.message);                                                                                                                     
+                                }                             
+                        })
+                </script>
+        </body>
+</html> 

@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+        <head>
+                <meta charset="utf-8" />
+                <link rel="stylesheet" href="css/style_login.css" />
+                <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        </head>
+        <body>                                                       
+                <form id="form" method="post" action="/a">
+                        <div class="form_espaco_titulo">                                
+                                <label class="tituloForm">Se cadastre</label>
+                        </div>
+                        <div class="form_espaco_label">     
+                                <label class="label">Nome</label>
+                        </div>
+                        <div class="form_espaco_input">
+                                <input class="input" id="usuario" type="text"/>
+                        </div>                                
+                        <div class="form_espaco_label">
+                                <label class="label">Senha</label>
+                        </div>
+                        <div class="form_espaco_input">
+                                <input class="input" id="senha" type="password"/>
+                        </div>
+                        <div class="form_espaco_botao">
+                                <button type="submit" class="botao">Cadastrar</button>   
+                        </div>   
+                        <div class="form_espaco_ahref">
+                                <a href="/login">Realizar o login</a>   
+                        </div>                          
+                </form>                 
+                
+                <script>
+                        const form = document.getElementById('form');
+
+                        form.addEventListener('submit', async function(e){
+                                e.preventDefault();
+
+                                const formData = new FormData(form);
+
+                                const usuario = document.getElementById('usuario').value;
+
+                                const senha = document.getElementById('senha').value;    
+                                
+                                let popUp = true;
+
+                                try {
+                                        const res = await axios.post('http://localhost:5000/addUsuario',{
+                                                "usuario": usuario,
+                                                "senha": senha
+                                        });
+                                        console.log(res.data);
+                                        if(res.data.usuario){
+                                                alert("Usuario "+res.data.usuario+" cadastrado com sucesso")
+                                        } else {
+                                                alert("Não foi possivel realizar o cadastro")
+                                        }                                        
+                                } catch (error){
+                                        console.log(error.message);                                                                                                                     
+                                }                             
+                        })
+                </script>
+        </body>
+</html> 

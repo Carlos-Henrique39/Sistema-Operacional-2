@@ -1,0 +1,84 @@
+body {
+    margin: 0;
+    height: 100%;
+    background-image: url(../imgs/Lanchonete_fundo.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+form{
+    height: 450px;
+    width: 400px;
+    position: absolute;
+    top: calc(50% - 225px);
+    left: calc(50% - 200px);
+    background-color: #211e1e;
+}
+
+.form_espaco_titulo{
+    height: 40%;
+    display: flex;
+    align-items: center;
+    padding-left: 40px;
+    font-size: 35px;
+    font-weight: bold;
+    color: white;
+    font-style: italic;
+    font-family:'Franklin Gothic Medium';
+}
+
+.form_espaco_label{
+    height: 7.5%;
+    padding-left: 40px;
+    font-size: 20px;
+    color: white;
+    font-family:'Franklin Gothic Medium';
+}
+
+.form_espaco_input{
+    height: 10%;
+    padding-left: 40px;
+}
+
+.input{
+    width: 310px;
+    height: 25px;
+}
+
+.form_espaco_botao{
+    height: 15%;
+    padding-left: 40px;
+}
+
+.botao{
+    margin-top: 15px;
+    font-size: 22px;
+    width: 315px;
+    height: 40px;
+    background-color: #c79a28;
+    color: white;
+    font-weight: bold;
+    border-style: none;
+    font-family:'Franklin Gothic Medium';
+}
+
+.botao:hover{
+    background-color: #a18132;
+    color: white;
+    cursor: pointer;
+}
+
+.form_espaco_ahref{
+    height: 10%;
+    padding-left: 40px;
+}
+
+a{
+    color: orange; 
+}
+
+a:hover{
+    color: white;
+}
